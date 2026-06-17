@@ -26,4 +26,5 @@
 = Foundations of Science
 #include "1_fos_game.typ"
 
-=
+= Writing a model
+#include "2_writing_models.typ"

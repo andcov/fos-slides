@@ -2,7 +2,7 @@
 #import "@preview/cades:0.3.1": qr-code
 #import themes.dewdrop: *
 
-== You know, I'm something of a scientist myself
+== You know, I'm something of a scientist myself <touying:unoutlined>
 
 #place(
   top + left,
@@ -51,7 +51,7 @@
   ),
 )
 
-== What is science?
+== What is science? <touying:unoutlined>
 
 #pause
 
@@ -76,9 +76,7 @@
   + fundamentally, we are interested in how we obtain information about the world, and then how we structure it to make predictions?
 ]
 
-
-
-== Foundations of Science Game
+== Foundations of Science Game <touying:unoutlined>
 #let fos_game_link = "https://jon011235.github.io/foundation-of-science-game/"
 #align(center + horizon)[
   #qr-code(fos_game_link, width: 30%)
