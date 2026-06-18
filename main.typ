@@ -28,3 +28,6 @@
 
 = Writing a model
 #include "2_writing_models.typ"
+
+= n-Queens
+#include "3_examples.typ"

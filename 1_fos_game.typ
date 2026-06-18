@@ -3,6 +3,7 @@
 #import themes.dewdrop: *
 
 == You know, I'm something of a scientist myself <touying:unoutlined>
+#pause
 
 #place(
   top + left,
@@ -12,7 +13,6 @@
 )
 
 #pause
-
 
 #place(
   top + left,
@@ -61,7 +61,7 @@
     #place(
       bottom + right,
       dy: -10pt,
-      text([_& computer science_], orange),
+      [_& computer science_],
     )
   ],
   numbering: none,
