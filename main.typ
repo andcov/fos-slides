@@ -31,3 +31,6 @@
 
 = n-Queens
 #include "3_examples.typ"
+
+= The algorithm
+#include "4_sat.typ"
