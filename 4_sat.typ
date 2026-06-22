@@ -65,10 +65,38 @@
 
 #slide[
 - You might have thought a solution up in your head and verified it #pause // By for instance looking at the formular and deducing which variables can be eliminated
-- But the way a computer would usually do it is with a *truth table*:
+- But the way a computer would usually is similar to a *truth table*:
 #align(center)[
   // TODO: I would like to have a column with checkmarks / crosses for the assignments that satisfy the formular, but truthfy doesn't seem to support that
   #truth-table($x_1 or not x_2 or x_3$, $not x_1 or x_2 or x_3$, $x_1 or x_2 or not x_3$)
 ]
+]
+
+#pagebreak()
+- How many possible solutions do we have per new variable?
+  - *Exponentially many*
+
+#let powers-of-two(max) = {
+  let cells = ()
+
+  for n in range(2, max + 1) {
+    cells.push(str(n+1))
+    cells.push(str(calc.pow(2, n+1)))
+  }
+
+  table(
+    columns: 2,
+    [\# of vars],[\# of possible solutions],
+    ..cells,
+  )
+}
+
+#alternatives[
+  #align(center)[
+    #powers-of-two(12)
+  ]
+][
+- Many of SAT problems have 100s of variables
+  - Active research done on reducing the search space with clever techniques
 ]
 
