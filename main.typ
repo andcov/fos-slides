@@ -23,13 +23,13 @@
 
 #title-slide()
 
-= Foundations of Science
+= What is science?
 #include "1_fos_game.typ"
 
-= Writing a model
+= Models as code
 #include "2_writing_models.typ"
 
-= n-Queens
+= A modelling language
 #include "3_examples.typ"
 
 = The algorithm

@@ -43,7 +43,7 @@
   bottom + right,
   dy: -8em,
   dx: -3em,
-  align(center)[*Is there a difference? \ Do we lose something? \ #pause How would you test this?*],
+  align(center)[Is there a difference? \ Do we lose something? \ #pause *How would you test this?*],
 )
 
 == Breaking the fourth wall <touying:unoutlined>
