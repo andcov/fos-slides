@@ -3,58 +3,95 @@ from cvc5 import Kind
 
 solver = cvc5.Solver()
 solver.setOption("sygus", "true")
+solver.setOption("rlimit-per", "10000000")
 
 String = solver.getStringSort()
+Int = solver.getIntegerSort()
 
 # SyGuS parameter
 x = solver.mkVar(String, "x")
 
 # Grammar non-terminal
 Start = solver.mkVar(String, "Start")
+Index = solver.mkVar(Int, "Index")
+Str = solver.mkVar(String, "Str")
+
+zero = solver.mkInteger(0)
 
 # Create grammar before synthFun
 grammar = solver.mkGrammar(
     [x],
-    [Start]
+    [Start, Str, Index],
 )
 
 grammar.addRule(Start, x)
 
-grammar.addRule(
+# String-producing rules
+grammar.addRules(
     Start,
-    solver.mkTerm(
-        Kind.STRING_CONCAT,
+    [
         x,
-        solver.mkString("!")
-    )
+        solver.mkTerm(
+            Kind.STRING_REPLACE,
+            Str,
+            solver.mkString("."),
+            solver.mkString(",")
+        ),
+        solver.mkTerm(
+            Kind.STRING_CONCAT,
+            Str,
+            Str
+        )
+    ]
 )
 
-grammar.addRule(Start, solver.mkString(""))
-grammar.addRule(Start, solver.mkString("!"))
+# Useful substrings
+grammar.addRules(
+    Str,
+    [
+        x,
+        solver.mkTerm(
+            Kind.STRING_SUBSTR,
+            x,
+            zero,
+            Index
+        )
+    ]
+)
 
-# Synthesize concat_suffix(x) -> String
-concat_suffix = solver.synthFun(
-    "concat_suffix",
+# Integer rules
+grammar.addRules(
+    Index,
+    [
+        zero,
+
+        solver.mkTerm(
+            Kind.STRING_INDEXOF,
+            x,
+            solver.mkString("@"),
+            zero
+        )
+    ]
+)
+
+
+# Synthesize our function
+f = solver.synthFun(
+    "f",
     [x],
     String,
     grammar
 )
 
-# Constraint:
-# concat_suffix(x) = x ++ "!"
 constraint = solver.mkTerm(
-    Kind.EQUAL,
-    solver.mkTerm(Kind.APPLY_UF, concat_suffix, x),
-    solver.mkTerm(
-        Kind.STRING_CONCAT,
-        x,
-        solver.mkString("!")
-    )
+    # FILL THIS IN
 )
 
 solver.addSygusConstraint(constraint)
 
 result = solver.checkSynth()
 
-print("Result:", result)
-print("Solution:")
+if result.hasSolution():
+    print("Solution:", solver.getSynthSolution(f))
+else:
+    print("No solution :(")
