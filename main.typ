@@ -32,7 +32,7 @@
 = A modelling language
 #include "3_examples.typ"
 
-= The algorithm
+= SAT
 #include "4_sat.typ"
 
 = Program synthesis
