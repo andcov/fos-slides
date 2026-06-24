@@ -96,7 +96,9 @@
     #powers-of-two(12)
   ]
 ][
-- Many of SAT problems have 100s of variables
-  - Active research done on reducing the search space with clever techniques
+- Many (interesting) SAT problems have 1000s of variables
+][
+- Many (interesting) SAT problems have 1000s of variables
+ - Active research done on reducing the search space with clever techniques
 ]
 
