@@ -43,7 +43,6 @@
 )
 
 #pause
-
 #place(
   top + left,
   dx: 0%,
@@ -54,6 +53,27 @@
     caption: [*"rapid unscheduled disassembly"*],
   ),
 )
+
+#pause
+#place(
+  top + left,
+  dx: 45%,
+  dy: 30%,
+  image("assets/image-7.png", width: 40%),
+)
+
+
+#pause
+#place(
+  top + left,
+  dy: 7%,
+  dx: 5%,
+  image("assets/image-8.png", width: 90%),
+)
+
+
+
+
 
 == What is science? <touying:unoutlined>
 
@@ -89,5 +109,5 @@
 ]
 
 #focus-slide[
-  #text(luma(60%), "part of") science is modelling
+  #text(luma(60%), "part of") science is #text(luma(60%), "sometime") modelling
 ]

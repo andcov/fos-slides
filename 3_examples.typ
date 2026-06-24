@@ -81,7 +81,7 @@ Relationships:
   _ #mzn_link _
 ]
 
-== HOW TF THIS WORK??? <touying:unoutlined>
+== How does CP work? <touying:unoutlined>
 
 #align(center + horizon)[
   #alternatives[
@@ -154,38 +154,33 @@ Relationships:
   ]
 ]
 
-== THIS HOW WORK <touying:unoutlined>
-+ we have a bunch of possible values for the variables
-+ we pick a value
-+ we remove values which become impossible (based on constraints)
-+ is the model still satisfiable?
-  + yes? go back to step 1
-  + no? backtrack!
+// == THIS HOW WORK <touying:unoutlined>
+// + we have a bunch of possible values for the variables
+// + we pick a value
+// + we remove values which become impossible (based on constraints)
+// + is the model still satisfiable?
+//   + yes? go back to step 1
+//   + no? backtrack!
 
-== h
-$
-         & x in {0, ..., 30} \
-         & y in {0, ..., 40} \
-         & x + y >= 50 \
-         \
-  #speaker-note[
-    + What's the most stupid way to find a solution?
-  ]
-  #pause & x = 0, y = 0 #pause \
-         & thick arrow.r.curve 0 + 0 >= 50 #pause thin crossmark.heavy #pause \
-         & x = 1, y = 0 #pause \
-         & thick arrow.r.curve 1 + 0 >= 50 thin crossmark.heavy #pause \
-         & ...#pause \
-         & x = 30, y = 20 \
-         & thick arrow.r.curve 30 + 20 >= 50 thin checkmark.heavy \
-$
+// == h
+// $
+//          & x in {0, ..., 30} \
+//          & y in {0, ..., 40} \
+//          & x + y >= 50 \
+//          \
+//   #speaker-note[
+//     + What's the most stupid way to find a solution?
+//   ]
+//   #pause & x = 0, y = 0 #pause \
+//          & thick arrow.r.curve 0 + 0 >= 50 #pause thin crossmark.heavy #pause \
+//          & x = 1, y = 0 #pause \
+//          & thick arrow.r.curve 1 + 0 >= 50 thin crossmark.heavy #pause \
+//          & ...#pause \
+//          & x = 30, y = 20 \
+//          & thick arrow.r.curve 30 + 20 >= 50 thin checkmark.heavy \
+// $
 
-#speaker-note[
-  + WAAAY TOO SLOW!
-  + Is this how
-]
-
-== A roadmap to modelling <touying:unoutlined>
-- describe the system with variables
-  - $x, x', Delta x$ #pause
-  - colour for each vertex
+// #speaker-note[
+//   + WAAAY TOO SLOW!
+//   + Is this how
+// ]
