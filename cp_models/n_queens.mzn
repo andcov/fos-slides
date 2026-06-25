@@ -5,6 +5,48 @@ include "alldifferent.mzn";
 
 int: n_queens = 10;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 % array[1..n_queens] of var int: rows;
 % array[1..n_queens] of var int: cols;
 
@@ -12,6 +54,32 @@ int: n_queens = 10;
 % constraint forall(i, j in 1..n_queens where i != j)(cols[i] != cols[j]);
 
 % output ["(\(rows[i]), \(cols[i]))\n" | i in 1..n_queens]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 % =====================================================
 
@@ -25,6 +93,31 @@ int: n_queens = 10;
 % constraint forall(i, j in 1..n_queens where i != j)(cols[i] != cols[j]);
 
 % output ["(\(rows[i]), \(cols[i]))\n" | i in 1..n_queens]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 % =====================================================
 
@@ -42,6 +135,30 @@ int: n_queens = 10;
 %         if col = n_queens then "\n+" ++ concat(["---+" | _ in 1..n_queens]) ++ "\n" else "" endif
 %         | row in 1..n_queens, col in 1..n_queens
 %     ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 % =====================================================
 
@@ -63,21 +180,51 @@ int: n_queens = 10;
 %         | row in 1..n_queens, col in 1..n_queens
 %     ];
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 % =====================================================
 
+% array[1..n_queens] of var 1..n_queens: cols;
 
-array[1..n_queens] of var 1..n_queens: cols;
+% constraint alldifferent(cols);
 
-constraint alldifferent(cols);
+% constraint alldifferent([i - cols[i] | i in 1..n_queens]);
+% constraint alldifferent([i + cols[i] | i in 1..n_queens]);
 
-constraint alldifferent([i - cols[i] | i in 1..n_queens]);
-constraint alldifferent([i + cols[i] | i in 1..n_queens]);
-
-output
-    ["+" ++ concat(["---+" | _ in 1..n_queens]) ++ "\n"] ++
-    [
-        if col = 1 then "| " else "" endif ++
-        if fix(cols[row] = col) then "Q | " else ". | " endif ++
-        if col = n_queens then "\n+" ++ concat(["---+" | _ in 1..n_queens]) ++ "\n" else "" endif
-        | row in 1..n_queens, col in 1..n_queens
-    ];
+% output
+%     ["+" ++ concat(["---+" | _ in 1..n_queens]) ++ "\n"] ++
+%     [
+%         if col = 1 then "| " else "" endif ++
+%         if fix(cols[row] = col) then "Q | " else ". | " endif ++
+%         if col = n_queens then "\n+" ++ concat(["---+" | _ in 1..n_queens]) ++ "\n" else "" endif
+%         | row in 1..n_queens, col in 1..n_queens
+%     ];
