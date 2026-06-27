@@ -84,7 +84,13 @@ f = solver.synthFun(
 )
 
 constraint = solver.mkTerm(
-    # FILL THIS IN
+    Kind.EQUAL,
+    solver.mkTerm(
+        Kind.APPLY_UF,
+        f,
+        solver.mkString("leia.organa@rebellion.net")
+    ),
+    solver.mkString("leia,organa")
 )
 
 solver.addSygusConstraint(constraint)
@@ -92,6 +98,12 @@ solver.addSygusConstraint(constraint)
 result = solver.checkSynth()
 
 if result.hasSolution():
-    print("Solution:", solver.getSynthSolution(f))
+    sol = solver.getSynthSolution(f)
+    print("Solution:", sol)
+
+    test_input = solver.mkString("jane.doe@domain.org")
+    application = solver.mkTerm(Kind.APPLY_UF, sol, test_input)
+    result_term = solver.simplify(application)
+    print("Applied to 'jane.doe@domain.org':", result_term)
 else:
     print("No solution :(")
